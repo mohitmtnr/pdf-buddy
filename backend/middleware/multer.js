@@ -1,9 +1,17 @@
 import multer from "multer";
+import fs from "fs";
 const MAX_FILE_SIZE = 5 * 1024 * 1024; //5MB
 
 const storage = multer.diskStorage({
   destination: function (req, file, callBack) {
-    callBack(null, "./uploads");
+    const uploadPath = "./uploads"; // Change this to your desired folder name
+
+    // Check if the "uploads" folder exists, create it if not
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath);
+    }
+
+    callBack(null, uploadPath);
   },
   filename: function (req, file, callBack) {
     const filterFileName = file.originalname

@@ -39,7 +39,7 @@ const PdfViewer = ({ searchParams }) => {
         </div>
       )}
       <Link
-        href={ROOT_URL}
+        href="/"
         className="mt-20 mb-10 bg-gray-600 text-gray-50 rounded-md px-10 py-3 hover:bg-gray-800 active:opacity-80"
       >
         <b>&lt;</b> Back To Home
