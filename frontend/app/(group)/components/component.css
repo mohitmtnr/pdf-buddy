@@ -1,0 +1,73 @@
+.decrease-width {
+  width: 100%;
+  animation-name: shortening;
+  animation-delay: 800ms;
+  animation-duration: 4300ms;
+  animation-timing-function: linear;
+}
+
+@keyframes shortening {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+.animate-shake {
+  animation: shaking 800ms;
+  animation-timing-function: linear;
+}
+
+@keyframes shaking {
+  0% {
+    transform: translateX(15px);
+  }
+  5% {
+    transform: translateX(-30px);
+  }
+  10% {
+    transform: translateX(10px);
+  }
+  15% {
+    transform: translateX(-20px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  30% {
+    transform: translateX(0px);
+  }
+}
+
+.bg-success {
+  background-color: #aaf0b4;
+  color: #006400;
+}
+
+.bg-success-dark {
+  background-color: #006400;
+}
+
+.bg-warning {
+  background-color: rgb(240, 230, 180);
+  color: #646400;
+}
+
+.bg-warning-dark {
+  background-color: #646400;
+}
+
+.bg-danger {
+  background-color: #f0aab4;
+  color: #640000;
+}
+
+.bg-danger-dark {
+  background-color: #640000;
+}
