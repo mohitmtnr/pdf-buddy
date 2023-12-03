@@ -4,13 +4,14 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useActivePageContext } from "@/app/context/ActivePageContext";
 import AuthenticateUser from "../components/AuthenticateUser";
+import { useSearchParams } from "next/navigation";
 const ExtractPages = dynamic(() => import("@/app/ui/extractPages"));
 const SRC_URL = process.env.NEXT_PUBLIC_SRC_URL;
 
-const PdfViewer = ({ searchParams }) => {
+const PdfViewer = () => {
+  const searchParams = useSearchParams();
   const { setActiveFile } = useActivePageContext();
-  const fileName = searchParams.file;
-
+  const fileName = searchParams.get("file");
   useEffect(() => {
     document.title = "Pdf Viewer";
     if (fileName !== undefined && fileName !== null) {

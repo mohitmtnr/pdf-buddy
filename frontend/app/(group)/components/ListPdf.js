@@ -30,6 +30,7 @@ const ListPdf = ({ setIsPdfFilesVisible }) => {
           // once pdf is deleted, on toggle fetch call will be made again
           setFetchData({ ...fetchData, isDataChanged: true });
           setIsPdfFilesVisible(false);
+
           if (activeFile !== null) {
             router.push(`/view`);
           }
