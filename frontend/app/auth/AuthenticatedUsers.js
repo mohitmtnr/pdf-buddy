@@ -8,7 +8,6 @@ import { useAlertContext } from "../context/AlertContext";
 export default function AuthenticatedUsers(Component, height) {
   return function (props) {
     const { user, setUser } = useAuthenticateContext();
-    const { showAlert } = useAlertContext();
     const router = useRouter();
     useEffect(() => {
       //checking if user logged in 24 hours ago as per authToken validation
@@ -19,7 +18,6 @@ export default function AuthenticatedUsers(Component, height) {
 
       // redirecting the user to the home page if  logged in
       if (localStorage.getItem("user") !== null) {
-        showAlert("warning", "Please logout to perform this action!");
         router.replace("/");
       }
     }, []);

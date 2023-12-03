@@ -12,7 +12,7 @@ const Alert = dynamic(() => import("./(group)/components/Alert"));
 export const metadata = {
   title: "PDF Buddy",
   description:
-    "A web application for pdf editing, Extact pdf pages, Rearrange pdf Pages, download pdf,upload pdf, secure ",
+    "A web application for pdf editing, Extact pdf pages, Rearrange pdf Pages, download pdf,upload pdf, secure and authenticated",
 };
 
 export default function RootLayout({ children }) {

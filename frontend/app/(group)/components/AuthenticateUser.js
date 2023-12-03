@@ -19,7 +19,6 @@ export default function AuthenticateUser(Component, height) {
 
       // redirecting the user to login page if not logged in
       if (localStorage.getItem("user") === null) {
-        showAlert("warning", "Please login to perform this action!");
         router.replace("/auth/login");
       }
     }, []);
