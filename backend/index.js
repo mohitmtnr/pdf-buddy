@@ -13,7 +13,6 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use("/", (req, res) => res.send("Server is successfully running!"));
 app.use("/api/pdf-buddy", pdfRouter);
 app.use("/api/user", userRouter);
 app.use("/uploads", express.static("./uploads")); //to view the pdf
