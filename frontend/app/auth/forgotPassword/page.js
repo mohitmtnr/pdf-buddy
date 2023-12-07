@@ -1,32 +1,32 @@
-'use client';
-import {useAlertContext} from '@/app/context/AlertContext';
-import {forgotPasswordResetUsingFetch} from '@/app/lib/fetchUser';
-import AuthenticatedUsers from '../AuthenticatedUsers';
-import {useRouter} from 'next/navigation';
-import React, {useState, useEffect} from 'react';
+"use client";
+import { useAlertContext } from "@/app/context/AlertContext";
+import { forgotPasswordResetUsingFetch } from "@/app/lib/fetchUser";
+import AuthenticatedUsers from "../AuthenticatedUsers";
+import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
 const Page = () => {
-  const {showAlert} = useAlertContext();
+  const { showAlert } = useAlertContext();
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [pending, setPending] = useState(false);
   const handleOnInputChange = (e) => {
     setEmail(e.target.value);
   };
   const handleOnSubmitForgotPasswordForm = (e) => {
     e.preventDefault();
-    const sendEmailButton = document.getElementById('sendEmailButton');
+    const sendEmailButton = document.getElementById("sendEmailButton");
     sendEmailButton.disabled = true;
     setPending(true);
     forgotPasswordResetUsingFetch(email)
       .then((response) => {
-        const {success, message} = response;
-        showAlert(success ? 'success' : 'danger', message);
+        const { success, message } = response;
+        showAlert(success ? "success" : "danger", message, "top-5");
         if (success) {
-          router.replace('/auth/login');
+          router.replace("/auth/login");
         }
       })
-      .catch((error) => showAlert('danger', error.message))
+      .catch((error) => showAlert("danger", error.message, "top-5"))
       .finally(() => {
         setPending(false);
         sendEmailButton.disabled = false;
@@ -34,7 +34,7 @@ const Page = () => {
   };
 
   useEffect(() => {
-    document.title = 'Forgot Password';
+    document.title = "Forgot Password";
   }, []);
 
   return (
@@ -64,11 +64,11 @@ const Page = () => {
         {pending ? (
           <span className="pending"></span>
         ) : (
-          'Send Reset Password Link'
+          "Send Reset Password Link"
         )}
       </button>
     </form>
   );
 };
 
-export default AuthenticatedUsers(Page, '400px');
+export default AuthenticatedUsers(Page, "400px");

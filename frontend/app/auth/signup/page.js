@@ -30,12 +30,16 @@ function Page() {
     signupButton.disabled = true;
     signupUsingFetch(userData)
       .then((response) => {
-        showAlert(response.success ? "success" : "danger", response.message);
+        showAlert(
+          response.success ? "success" : "danger",
+          response.message,
+          "top-5"
+        );
         if (response.success) {
           router.replace("login");
         }
       })
-      .catch((error) => showAlert("danger", error.message))
+      .catch((error) => showAlert("danger", error.message, "top-5"))
       .finally(() => {
         signupButton.disabled = false;
         setLoading(false);
@@ -44,7 +48,7 @@ function Page() {
 
   const handleOnSubmitGoogleForm = (e) => {
     e.preventDefault();
-    showAlert("warning", "This option is not available yet!");
+    showAlert("warning", "This option is not available yet!", "top-5");
   };
 
   useEffect(() => {

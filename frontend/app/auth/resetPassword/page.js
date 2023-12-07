@@ -44,18 +44,18 @@ const Page = ({ searchParams }) => {
       })
         .then((response) => {
           const { success, message } = response;
-          showAlert(success ? "success" : "danger", message);
+          showAlert(success ? "success" : "danger", message, "top-5");
           if (success) {
             router.replace("login");
           }
         })
-        .catch((error) => showAlert("danger", error.message))
+        .catch((error) => showAlert("danger", error.message, "top-5"))
         .finally(() => {
           setPending(false);
           saveButton.disabled = false;
         });
     } catch (error) {
-      showAlert("danger", error.message);
+      showAlert("danger", error.message, "top-5");
       setPending(false);
       saveButton.disabled = false;
     }

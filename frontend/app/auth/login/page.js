@@ -28,7 +28,11 @@ function Page() {
     loginButton.disabled = true;
     loginUsingFetch(userData)
       .then((response) => {
-        showAlert(response.success ? "success" : "danger", response.message);
+        showAlert(
+          response.success ? "success" : "danger",
+          response.message,
+          "top-5"
+        );
         if (response.success) {
           const newUserData = {
             username: response.username,
@@ -41,7 +45,7 @@ function Page() {
           router.replace("/");
         }
       })
-      .catch((error) => showAlert("danger", error.message))
+      .catch((error) => showAlert("danger", error.message, "top-5"))
       .finally(() => {
         loginButton.disabled = false;
         setLoading(false);
@@ -50,7 +54,7 @@ function Page() {
 
   const handleOnContinueWithGoogle = (e) => {
     e.preventDefault();
-    showAlert("warning", "This option is not available yet!");
+    showAlert("warning", "This option is not available yet!", "top-5");
   };
 
   useEffect(() => {

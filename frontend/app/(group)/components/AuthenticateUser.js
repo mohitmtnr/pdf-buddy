@@ -9,7 +9,6 @@ export default function AuthenticateUser(Component, height) {
   return function (props) {
     const { user, setUser } = useAuthenticateContext();
     const router = useRouter();
-    const { showAlert } = useAlertContext();
     useEffect(() => {
       //checking if user logged in 24 hours ago as per authToken validation
       if (user !== null && user.loginExpiry <= Date.now()) {

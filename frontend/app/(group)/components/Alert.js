@@ -8,14 +8,16 @@ const Alert = () => {
 
   // This component will always be there below navbar as it was placed the root layout of the app folder
   // The data visiblity depends on the alert state variable
-  // If alert is not empty, it will show the alert else no content will be visible regardless the component is below navbar always
+  // If alert is not empty, it will show the alert else no content will be visible however the component will always be below navbar
 
   return (
     alert && (
       <span
         className={` bg-${
           alert.type || "gray-400"
-        } animate-shake py-3 px-5 rounded-md right-2 fixed shadow-md top-20 -mt-2 z-50`}
+        } animate-shake py-3 px-5 rounded-md right-2 fixed shadow-md ${
+          alert.top ? alert.top : "top-20"
+        }  -mt-2 z-50`}
       >
         <p>{alert.message}</p>
 
