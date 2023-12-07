@@ -6,10 +6,12 @@ import { useRouter } from "next/navigation";
 import AuthenticateUser from "./AuthenticateUser";
 import { useOptimizeFetch } from "@/app/context/OptimizeFetchCallContext";
 import { useAuthenticateContext } from "@/app/context/AuthenticateContext";
+import { useAlertContext } from "@/app/context/AlertContext";
 const ListPdf = dynamic(() => import("./ListPdf"));
 
 const NavBar = () => {
   const { user, setUser } = useAuthenticateContext();
+  const { showAlert } = useAlertContext();
   const router = useRouter();
   const buttonRef = useRef();
   const [isPdfFilesVisible, setIsPdfFilesVisible] = useState(false);
@@ -22,6 +24,7 @@ const NavBar = () => {
       isDataChanged: true,
       cache: [],
     });
+    showAlert("success", "Successfully logged out!", "top-5");
     router.push("/auth/login");
   };
 

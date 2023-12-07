@@ -26,6 +26,7 @@ export default function AuthenticatedUsers(Component, height) {
       <Component {...props} />
     ) : (
       <Skeleton
+        className=" z-50"
         height={height}
         width="100vw"
         borderRadius={0}

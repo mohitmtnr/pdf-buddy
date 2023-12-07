@@ -12,7 +12,7 @@ const Alert = dynamic(() => import("./(group)/components/Alert"));
 export const metadata = {
   title: "PDF Buddy",
   description:
-    "A web application for pdf editing, Extact pdf pages, Rearrange pdf Pages, download pdf,upload pdf, secure and authenticated",
+    "Are you tired of saving long PDFs? Why did not you try us before? We offer free PDF customization, extraction and let you save 5 PDFs in your account. Try now!",
 };
 
 export default function RootLayout({ children }) {

@@ -31,7 +31,7 @@ function Page() {
         showAlert(
           response.success ? "success" : "danger",
           response.message,
-          "top-5"
+          response.success ? false : "top-5"
         );
         if (response.success) {
           const newUserData = {
