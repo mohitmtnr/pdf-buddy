@@ -9,8 +9,8 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <div className="flex h-screen w-full justify-center items-center md:flex-row md:overflow-hidden">
-      <div className="w-full flex flex-col justify-center items-center md:w-64">
-        <div className=" w-32 h-32 rounded-full bg-gray-200">
+      <div className="w-full flex flex-col justify-center md:border-2 md:border-gray-200 bg-white  items-center md:w-[400px] rounded-lg pb-10 pt-5 md:shadow-md">
+        <div className=" w-32 h-32 rounded-full bg-gray-200 ">
           <Image
             src={userProfileImage}
             loading="eager"
